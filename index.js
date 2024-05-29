@@ -89,49 +89,6 @@ app.get("/gemini", async (req, res) => {
     res.status(500).json({ message: e.message });
   }
 });
-
-// app.post('/convert', upload.array('file'), (req, res) => {
-//   const files = req.files;
-//   if (!files || files.length === 0) {
-//     return res.status(400).send('No files uploaded.');
-//   }
-//   const jsonDataArray = [];
-//   try {
-//     files.forEach(file => {
-//       const filePath = path.resolve(file.path);
-//       const ext = path.extname(file.originalname).toLowerCase();
-//       let jsonData;
-//       if (ext === '.xlsx') {
-//         // Read the Excel file
-//         const workbook = xlsx.readFile(filePath);
-//         // Convert the first sheet to JSON
-//         const sheetName = workbook.SheetNames[0];
-//         const sheet = workbook.Sheets[sheetName];
-//         jsonData = xlsx.utils.sheet_to_json(sheet);
-//       } else if (ext === '.csv') {
-//         // Read the CSV file
-//         const fileContent = fs.readFileSync(filePath, 'utf8');
-//         jsonData = parse(fileContent, { columns: true });
-//       } else {
-//         throw new Error('Unsupported file format');
-//       }
-//       // Append the JSON data to the array
-//       jsonDataArray.push({
-//         fileName: file.originalname,
-//         data: jsonData
-//       });
-//       // Clean up the uploaded file
-//       fs.unlinkSync(filePath);
-//     });
-//     // Send the JSON response
-//     console.log(jsonDataArray);
-//     return res.status(200).json(jsonDataArray);
-//   } catch (error) {
-//     console.error('Error processing files:', error);
-//     res.status(500).send('Error processing files');
-//   }
-// });
-
 app.listen(port, () => {
   console.log(`The Gemini-api running at http://localhost:${port}`);
 });
