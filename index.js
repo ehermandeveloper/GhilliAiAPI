@@ -1,11 +1,5 @@
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const dotenv = require("dotenv");
-const multer = require('multer');
-const xlsx = require('xlsx');
-const fs = require('fs');
-const path = require('path');
-const upload = multer({ dest: 'uploads/' });
-const { parse } = require('csv-parse/sync');
 const MODEL_NAME = "gemini-1.0-pro";
 
 dotenv.config();
